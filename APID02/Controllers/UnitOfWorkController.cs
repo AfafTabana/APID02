@@ -108,6 +108,7 @@ namespace APID02.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
             Department depts = new Department()
             {
+                Dept_Id = department.Dept_Id,
                 Dept_Name = department.Dept_Name,
                 Dept_Location = department.Dept_Location,
                 Dept_Desc = department.Dept_Desc,
@@ -116,7 +117,7 @@ namespace APID02.Controllers
 
 
             };
-            depts.Dept_Id = 0;
+           
             unit.DeptReps.add(depts);
             unit.save();
             return Ok();

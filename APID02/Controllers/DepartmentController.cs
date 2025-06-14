@@ -63,7 +63,7 @@ namespace APID02.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [Produces("application/json")]
-       
+        [Authorize]
         public ActionResult Add(AddDepartmentDTO department)
         {
 

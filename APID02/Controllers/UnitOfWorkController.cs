@@ -104,6 +104,8 @@ namespace APID02.Controllers
         [HttpPost("Department")]
         public IActionResult addDepartment([FromBody] AddDepartmentDTO department)
         {
+            if (department == null) return BadRequest();
+            if (!ModelState.IsValid) return BadRequest(ModelState);
             Department depts = new Department()
             {
                 Dept_Name = department.Dept_Name,

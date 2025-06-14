@@ -1,6 +1,7 @@
 ﻿using APID02.DTOS;
 using APID02.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -58,6 +59,7 @@ namespace APID02.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [Produces("application/json")]
+        [Authorize]
         public ActionResult Add(AddStudentData student) { 
 
             if (student == null) return BadRequest();
@@ -82,6 +84,7 @@ namespace APID02.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public ActionResult Edit(int id, Student student) {
 
             if (student == null) return BadRequest();
@@ -99,6 +102,7 @@ namespace APID02.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         public ActionResult Delete(int id) { 
         
             Student  sts = db.Students.FirstOrDefault(e=>e.St_Id == id);
